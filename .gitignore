@@ -1,7 +1,7 @@
 # Custom
 
 # Configuration for documents
-src/config/
+src/config/docdata.json
 dist/
 deploy.js
 

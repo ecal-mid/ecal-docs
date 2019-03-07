@@ -64,9 +64,6 @@ module.exports = {
         new HtmlWebpackPlugin({inject: false, hash: true, template: './src/index.html', filename: 'index.html'}),
         new CopyWebpackPlugin([
             {
-                from: 'src/assets',
-                to: 'assets'
-            }, {
                 from: 'src/config',
                 to: 'config'
             }

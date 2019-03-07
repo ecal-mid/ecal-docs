@@ -3,6 +3,7 @@
 # Configuration for documents
 src/config/
 dist/
+deploy.js
 
 # Created by https://www.gitignore.io/api/osx,node
 # Edit at https://www.gitignore.io/?templates=osx,node

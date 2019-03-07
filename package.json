@@ -5,7 +5,8 @@
   "scripts": {
     "start": "webpack-dev-server --start",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "deploy": "webpack --mode production && node deploy.js"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -16,6 +17,7 @@
     "css-loader": "^2.1.0",
     "extract-loader": "^1.0.2",
     "file-loader": "^1.1.11",
+    "ftp-deploy": "^2.3.1",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.9.0",

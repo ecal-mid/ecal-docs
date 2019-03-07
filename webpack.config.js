@@ -54,13 +54,6 @@ module.exports = {
                         }
                     }
                 ]
-            }, 
-            {
-                test: /\.html$/,
-                loader: 'mustache-loader'
-                // loader: 'mustache-loader?minify'
-                // loader: 'mustache-loader?{ minify: { removeComments: false } }'
-                // loader: 'mustache-loader?noShortcut'
             }
         ]
     },
@@ -73,6 +66,9 @@ module.exports = {
             {
                 from: 'src/assets',
                 to: 'assets'
+            }, {
+                from: 'src/config',
+                to: 'config'
             }
         ], {})
     ]

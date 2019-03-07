@@ -1,5 +1,5 @@
 {
-  "name": "sheetinvoices",
+  "name": "ecalmid-ressources",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -35,7 +35,6 @@
     "@material/layout-grid": "^0.41.0",
     "@material/textfield": "^0.40.1",
     "@material/top-app-bar": "^0.42.0",
-    "@material/typography": "^0.43.0",
-    "mustache-loader": "^1.4.3"
+    "@material/typography": "^0.43.0"
   }
 }

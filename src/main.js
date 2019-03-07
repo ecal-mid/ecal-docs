@@ -11,18 +11,18 @@ topAppBar.setScrollTarget(document.getElementById('main-content'));
 topAppBar.listen('MDCTopAppBar:nav', () => {
   drawer.open = !drawer.open;
 });
-
-const sidebarTemplate = require('templates/sidebar-elem.html');
+drawer.open = true;
 
 let elBody = document.querySelector('body');
 
-// Read the data and download everything / add to sidebar
+// Templates
+const tSidebarItem = document.querySelector("#sidebaritem");
 
 var docdata = "";
-const elSidebar = document.querySelector("sidebar");
+const elSidebar = document.querySelector("#sidebar");
 
 async function readData(){
-    const dataUrl = "assets/docdata.json";
+    const dataUrl = "config/docdata.json";
 
     try {
         let data = await fetch(dataUrl);
@@ -35,54 +35,37 @@ async function readData(){
     }
 }
 
-async function main(){
-    const url = "https://docs.google.com/document/d/e/2PACX-1vSp3pwrNr1KZ7WaATrc7Fsgyh9vBRbnzkEAPXWks0mjhYh24qXBFE0mQPYJSvyhv09VqyYYKM4Ttf-Y/pub";
-    console.log("main function");
-    try {
-        // docdata = await readData().docs;
-        // console.log("got here");
-        // console.log(docdata);
-        // docdata.forEach(el => {
-        //     console.log(el);
-            
-        //     var html = sidebarTemplate({ name: el.name, url: el.url });
-        //     console.log(html);
-        //     elSidebar.appendChild(html);
-            
-        //     //<a class="mdc-list-item" href="#group1">
-        //     //  <span class="mdc-list-item__text">Group 1</span>
-        //     //</a>
-        //     // Add the title to the sidebar
+async function loadGoogleDocHTML(url){
+    let page = await fetch(url);
+    let text = await page.text();
 
-        // });
-        // console.log(docdata);
-
-        let table = await fetch(url);
-        let text = await table.text();
-        console.log(text);
-
-        let frag = document.createRange().createContextualFragment(text);
-        console.log(frag);
+    let frag = document.createRange().createContextualFragment(text);
         
-        let content = frag.querySelector("#contents");
-        let styleNode = content.querySelector("style");
-        styleNode.remove();
+    let content = frag.querySelector("#contents");
+    let styleNode = content.querySelector("style");
+    styleNode.remove();
+    document.querySelector("main > div").replaceWith(frag.querySelector("#contents"));
+}
 
-        // var arr = Array.from(nl);
-        // arr.forEach(el => el.removeAttribute("style"))
+async function main(){
+    try {
+        docdata = await readData();
+        docdata.docs.forEach(el => {
+            let clone = document.importNode(tSidebarItem.content, true);
+            
+            let elA = clone.querySelector('a');
+            elA.setAttribute('data-url', el.url);
+            elA.setAttribute('href', '#');
+            elA.addEventListener('click', (evt) => {
+                loadGoogleDocHTML(evt.target.dataset.url);
+            });
+            let elSpan = clone.querySelector('span');
+            elSpan.innerHTML = el.name;
+            elSidebar.appendChild(clone);
+        });
 
-        // console.log(frag.querySelector("table"));
-        document.querySelector("main > div").replaceWith(frag.querySelector("#contents"));
+        loadGoogleDocHTML(docdata.docs[0].url);
 
-        //todo remove styling
-
-        // let parser = new DOMParser();
-        // let htmlDoc = parser.parseFromString(text, 'text/html');
-        // console.log(htmlDoc);
-
-        // // let elTable = htmlDoc.querySelector("table")[0];
-        // // console.log(elTable);
-        // document.querySelector("main").appendChild(elTable);
     } catch (e) {
         console.log("Exception occured");
         console.log(e);

@@ -1,0 +1,92 @@
+@import "./variables";
+@import "@material/drawer/mdc-drawer";
+@import "@material/list/mdc-list";
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/typography/mdc-typography";
+@import "@material/layout-grid/mdc-layout-grid";
+
+body {
+  display: flex;
+  // height: 100vh;
+}
+html,body{
+  overflow-y: auto !important;
+  }
+
+  html {
+    min-height: 100%;
+    // height: auto;
+  }
+  
+// .fancybox-lock body {
+//   overflow: visible !important;
+// }
+
+.mdc-drawer-app-content {
+  flex: auto;
+  overflow: auto;
+  position: relative;
+}
+
+.main-content {
+  overflow: auto;
+  height: 100%;
+  padding: 20px;
+}
+
+.app-bar {
+  position: absolute;
+}
+
+// only apply this style if below top app bar
+.mdc-top-app-bar {
+  z-index: 7;
+}
+
+img {
+  max-width: 100%;
+}
+
+video {
+  max-width: 100%;
+}
+
+/*
+@import "./common";
+@import "@material/textfield/mdc-text-field";
+@import "@material/button/mdc-button";
+@import "@material/elevation/mdc-elevation";
+
+.header {
+  text-align: center;
+}
+
+.username,
+.password {
+  display: block;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 300px;
+  margin: auto;
+}
+
+.button-container button {
+  margin: 3px;
+}
+
+.loginbody {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login {
+	@include mdc-elevation(2)
+	padding: 30px;
+}
+*/

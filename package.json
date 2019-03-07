@@ -1,0 +1,41 @@
+{
+  "name": "sheetinvoices",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "webpack-dev-server --start",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^1.0.0",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^2.1.0",
+    "extract-loader": "^1.0.2",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.9.0",
+    "rimraf": "^2.6.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "@material/button": "^0.40.1",
+    "@material/drawer": "^0.42.0",
+    "@material/elevation": "^0.41.0",
+    "@material/form-field": "^0.42.0",
+    "@material/layout-grid": "^0.41.0",
+    "@material/textfield": "^0.40.1",
+    "@material/top-app-bar": "^0.42.0",
+    "@material/typography": "^0.43.0",
+    "mustache-loader": "^1.4.3"
+  }
+}

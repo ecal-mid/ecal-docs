@@ -4,7 +4,7 @@ Creates simple wiki-looking website from Google Docs documents published as HTML
 
 ### Requirements
 
-* (yarn)[!https://yarnpkg.com/lang/en/docs/install/#mac-stable] npm, but better and simpler
+* [yarn](!https://yarnpkg.com/lang/en/docs/install/#mac-stable) npm, but better and simpler
 
 ### Setup
 
